@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertube/delegates/search_data.dart';
 import 'package:fluttertube/screens/home.dart';
 
 void main() {
@@ -16,14 +17,7 @@ class MyApp extends StatelessWidget {
 
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Container(
-            height: 25,
-            child: Image.asset("images/youtube-logo.png"),
-          ),
-        ),
-      )
+      home: Home()
     );
   }
 }
