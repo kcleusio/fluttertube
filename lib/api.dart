@@ -1,10 +1,10 @@
 import 'dart:convert';
-
+import 'key.dart';
 import 'package:fluttertube/models/video.dart';
 import 'package:http/http.dart' as http;
 
-const API_KEY = "AIzaSyCwJ52bSKq0PRuJUCpvbl4TmhHh3ZEN3W0";
-//TESTE
+
+
 class api {
   Search(String search) async {
     http.Response response = await http.get(
@@ -13,7 +13,7 @@ class api {
     decode(response);
   }
 }
-
+//
 List<Video> decode(http.Response response) {
   if (response.statusCode == 200) {
     var decoded = json.decode(response.body);
