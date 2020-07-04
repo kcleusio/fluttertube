@@ -16,7 +16,14 @@ class MyApp extends StatelessWidget {
 
       ),
       debugShowCheckedModeBanner: false,
-      home: Home()
+      home: Scaffold(
+        appBar: AppBar(
+          title: Container(
+            height: 25,
+            child: Image.asset("images/youtube-logo.png"),
+          ),
+        ),
+      )
     );
   }
 }
