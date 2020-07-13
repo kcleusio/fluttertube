@@ -13,8 +13,7 @@ class VideosBloc implements BlocBase {
 
   Stream get outVideos => _videoController.stream;
 
-  // passar dados para dentro do bloc:  - Através de uma função ou
-  //atraves de um StreamController
+  // passar dados para dentro do bloc:  - Através de uma função ou através de um StreamController
   //Usando StreamController
 
   final StreamController<String> _searchController = StreamController<String>();

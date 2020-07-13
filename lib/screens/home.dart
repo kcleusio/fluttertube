@@ -35,6 +35,7 @@ class Home extends StatelessWidget {
           )
         ],
       ),
+      backgroundColor: Colors.black87,
       body: StreamBuilder(
           stream: bloc.outVideos,
           initialData: [],
@@ -44,7 +45,7 @@ class Home extends StatelessWidget {
                 itemBuilder: (context, index) {
                   if (index < snapshot.data.length) {
                     return VideoTile(snapshot.data[index]);
-                  } else if(index > 1 ){
+                  } else if (index > 1) {
                     bloc.inSearch.add(null);
                     return Container(
                       height: 40,
@@ -54,6 +55,8 @@ class Home extends StatelessWidget {
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
                       ),
                     );
+                  } else {
+                    return Container();
                   }
                 },
                 itemCount: snapshot.data.length + 1,
@@ -61,7 +64,6 @@ class Home extends StatelessWidget {
             else
               return Container();
           }),
-      backgroundColor: Colors.black87,
     );
   }
 }
