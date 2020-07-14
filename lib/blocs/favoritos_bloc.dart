@@ -16,6 +16,7 @@ class FavoritosBloc implements BlocBase {
 
   FavoritosBloc() {
     SharedPreferences.getInstance().then((prefs) {
+
       if (prefs.getKeys().contains("favorites")) {
         _favoritos = json.decode(prefs.getString("favorites")).map((k, v) {
           return MapEntry(k, Video.fromJson(v));

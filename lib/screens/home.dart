@@ -4,6 +4,7 @@ import 'package:fluttertube/blocs/favoritos_bloc.dart';
 import 'package:fluttertube/blocs/videos_bloc.dart';
 import 'package:fluttertube/delegates/search_data.dart';
 import 'package:fluttertube/models/video.dart';
+import 'package:fluttertube/screens/favoritos_screen.dart';
 import 'package:fluttertube/widgets/videotile.dart';
 
 class Home extends StatelessWidget {
@@ -22,22 +23,29 @@ class Home extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: StreamBuilder<Map<String, Video>>(
-                stream: BlocProvider.of<FavoritosBloc>(context).outFav,
-                //initialData: {},
+                stream: BlocProvider
+                    .of<FavoritosBloc>(context)
+                    .outFav,
+
                 builder: (context, snapshot) {
-                  if(snapshot.hasData) return Text("${snapshot.data.length}");
-                  else return Container();
+                  if (snapshot.hasData)
+                    return Text("${snapshot.data.length}");
+                  else
+                    return Container();
                 }),
           ),
           IconButton(
             icon: Icon(Icons.star),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => Favoritos()));
+            },
           ),
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () async {
               String resultado =
-                  await showSearch(context: context, delegate: DataSearch());
+              await showSearch(context: context, delegate: DataSearch());
               if (resultado != null) bloc.inSearch.add(resultado);
             },
           )
