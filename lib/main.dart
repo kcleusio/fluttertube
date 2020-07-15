@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         child: BlocProvider(
           bloc: FavoritosBloc(),
           child: MaterialApp(
-              title: 'Fluttertube',
+              title: 'Flutter Youtube',
               theme: ThemeData(
                 visualDensity: VisualDensity.adaptivePlatformDensity,
               ),

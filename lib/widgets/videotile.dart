@@ -14,7 +14,7 @@ class VideoTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<FavoritosBloc>(context);
     return GestureDetector(
-      onTap: () {
+      onTap: () { //tocar o vídeo dentro do app
         FlutterYoutube.playYoutubeVideoById(apiKey: API_KEY, videoId: video.id);
       },
       child: Container(
